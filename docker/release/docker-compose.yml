@@ -29,11 +29,8 @@ test:
   command: --reporter mocha-jenkins-reporter
 
 nginx:
-  image: nginx
-  #build: .
-  #dockerfile: Dockerfile.nginx
-  volumes:
-    - ./botbackend.conf:/etc/nginx/conf.d/botbackend.conf
+  build: .
+  dockerfile: Dockerfile.nginx
   links:
     - app
   ports:
@@ -59,7 +56,7 @@ db:
     MYSQL_ROOT_PASSWORD: password
 
 agent:
-  image: jmenga/ansible
+  image: bottledjinni/ansible
   volumes:
     - ../../ansible/probe.yml:/ansible/site.yml
   links:

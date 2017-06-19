@@ -1,0 +1,5 @@
+FROM nginx
+MAINTAINER Anwar Hassen <anwar.hassen@aalto.fi>
+ 
+# Copy botbackend nginx configuration file
+COPY botbackend.conf /etc/nginx/conf.d/botbackend.conf
